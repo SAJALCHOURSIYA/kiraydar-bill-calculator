@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Tenant Bill Calculator</title>
+</head>
+<body>
+    <h2>Tenant Bill Calculator</h2>
+    
+    <label>Previous Month Units (Badi Value):</label><br>
+    <input type="number" id="previousUnit"><br><br>
+    
+    <label>Current Month Units (Choti Value):</label><br>
+    <input type="number" id="currentUnit"><br><br>
+    
+    <label>Rate per Unit (₹):</label><br>
+    <input type="number" id="rate"><br><br>
+    
+    <button onclick="calculate()">Calculate Bill</button>
+    
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get values from inputs
+            var previous = parseFloat(document.getElementById("previousUnit").value);
+            var current = parseFloat(document.getElementById("currentUnit").value);
+            var rate = parseFloat(document.getElementById("rate").value);
+
+            // Calculate units used and total bill
+            var unitsUsed = previous - current;
+            var totalBill = unitsUsed * rate;
+
+            // Display result
+            document.getElementById("result").innerHTML = 
+                "Your Bill: ₹" + totalBill.toFixed(2);
+        }
+    </script>
+</body>
+</html>
